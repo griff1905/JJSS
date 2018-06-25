@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<title>Image Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/stylesheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	</head>
+<body class="family">
+<h1> Image Upload Form</h1>
+<hr>
+
+
+
+<!-- ----------Modal and form----------Modal and form----------Modal and form----------Modal and form----------Modal and form----------Modal and form -->
+
+
+
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Image Upload Form</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+
+
+              <form method="post" action="imageUpload.php" name="form" onsubmit="return validateForm()">
+                      <div class="form-group">
+                          <label for="first_name">First Name:</label> <span id="firstnameerr"></span>
+                          <input type="text" name="first_name" id="first_name" class="form-control txt" />
+                      </div>
+
+          						<div class="form-group">
+          							<label for="last_name">Last Name:</label><span id="lastnameerr"></span>
+          							<input type="text" name="last_name" id="last_name" class="form-control txt" />
+          						</div>
+          						<div class="form-group">
+          							<label for="email">Email Address:</label><span id="emailerr"></span>
+          							<input type="text" name="email" id="email" class="form-control txt" />
+          						</div>
+
+                    <div class="form-group">
+                      <label for="pic">Picture</label>
+                        <input type="file" name="pic" id="pic" accept="image/*"><span id="picerr"></span>
+                    </div>
+
+
+                      <button type="submit" name="btnSubmit" id="btnSubmit" value="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <a href="" class="btn btn-dark btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Upload A Image</a>
+</div>
+
+
+
+
+<!-- ----------Modal and form----------Modal and form----------Modal and form----------Modal and form----------Modal and form----------Modal and form -->
+
+
+
+
+
+<script>
+
+function validateForm() {
+	var error = "Fill this in";
+    var form = document.forms["form"];
+    var q = form["first_name"].value;
+    var w = form["last_name"].value;
+    var e = form["email"].value;
+    var r = form["pic"].value;
+
+    var valid = true;
+
+    if ( q == "") {
+     document.getElementById("firstnameerr").innerHTML = error;
+       valid = false;
+    }  if ( w == "") {
+     document.getElementById("lastnameerr").innerHTML = error;
+       valid = false;
+    }  if ( e == "") {
+     document.getElementById("emailerr").innerHTML = error;
+       valid = false;
+    }  if ( r == "") {
+     document.getElementById("picerr").innerHTML = error;
+     valid = false;
+   }
+
+  	if (valid == false) {
+  		return false;
+  	}else{
+  		return true;
+  	}
+}
+
+
+</script>
+</body>
+</html>
